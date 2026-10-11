@@ -53,7 +53,7 @@ Self-hosted Supabase is not one container. It is about a dozen cooperating servi
 
 **Database access**: apps on Railway use `DATABASE_URL` from the Postgres service (direct) or `POOLER_URL_TRANSACTION` from Supavisor (pooled). Nothing is exposed publicly by default; adding a TCP proxy sends unencrypted Postgres traffic over the internet.
 
-**Edge Functions**: add `services/functions/functions/<name>/index.ts` in your repository and push; Railway rebuilds the Functions service. Call it at `/functions/v1/<name>`. Set `VERIFY_JWT=true` on Functions to require a valid JWT.
+**Edge Functions**: add `services/functions/functions/{name}/index.ts` in your repository and push; Railway rebuilds the Functions service. Call it at `/functions/v1/{name}`. Set `VERIFY_JWT=true` on Functions to require a valid JWT.
 
 **Optional new API keys**: run upstream `docker/utils/add-new-auth-keys.sh` locally with your `JWT_SECRET`, then set `SUPABASE_PUBLISHABLE_KEY`, `SUPABASE_SECRET_KEY`, `ANON_KEY_ASYMMETRIC`, `SERVICE_ROLE_KEY_ASYMMETRIC` on the Gateway, `GOTRUE_JWT_KEYS` (JWT_KEYS) on Auth, and the public JWKS as `PGRST_JWT_SECRET` (REST), `API_JWT_JWKS` (Realtime), `JWT_JWKS` (Storage) and `SUPABASE_JWKS` (Functions).
 
