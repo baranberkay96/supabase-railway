@@ -1,6 +1,6 @@
 # Deploy and Host Supabase with Railway
 
-[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/deploy/supabase-self-hosted-backend)
+[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/deploy/supabase-self-hosted-backend?referralCode=20H68q)
 
 Run your own Supabase on Railway: Postgres 17 with Supabase extensions, Auth, auto-generated REST and GraphQL APIs, Realtime, Storage backed by a Railway Bucket, Edge Functions, the Supavisor pooler and Studio. Keys are generated on deploy with no manual setup, and only the API gateway is public. Community template.
 
