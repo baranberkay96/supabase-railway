@@ -1,0 +1,7 @@
+// From supabase/supabase docker/volumes/functions/deno.jsonc (self-hosted/v0.8.2, Apache-2.0).
+{
+  "imports": {
+    "@supabase/functions-js": "jsr:@supabase/functions-js@^2",
+    "@supabase/server": "npm:@supabase/server@^1"
+  }
+}
