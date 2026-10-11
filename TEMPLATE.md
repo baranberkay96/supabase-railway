@@ -204,3 +204,7 @@ Minimum plan: **Hobby** (11 services; each fits the Trial's 1 GB per service, bu
 - Logs Explorer is disabled: Logflare + Vector need the Docker socket for log collection, which Railway does not provide.
 - `POSTGRES_PASSWORD` is baked into roles on first init; changing the variable later breaks service logins until roles are updated (upstream `utils/db-passwd.sh` procedure).
 - Railway Bucket compatibility with storage-api multipart/TUS uploads is expected (Tigris supports multipart) but not verified.
+
+## Deploy test findings (2026-10-11)
+
+Auth, REST, Realtime and Storage started before the repo-built Postgres image finished building; its private hostname did not resolve yet, they crash-looped and exhausted 10 ON_FAILURE retries. Redeploying them once Postgres was up made all 11 services healthy. Fix: restart policy ALWAYS and a 1200 s healthcheck window on those four, so they keep retrying until Postgres is reachable.
